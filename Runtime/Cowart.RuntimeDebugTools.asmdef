@@ -1,0 +1,16 @@
+{
+  "name": "Cowart.RuntimeDebugTools",
+  "rootNamespace": "Cowart.RuntimeDebugTools",
+  "references": [
+    "Unity.UGUI"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
