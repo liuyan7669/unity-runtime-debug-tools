@@ -1,25 +1,25 @@
 # Runtime Debug Tools
 
-Runtime shortcuts for common Unity debugging workflows.
+用于 Unity 常见调试流程的运行时快捷工具。
 
-## Features
+## 功能
 
-- `TimeScaleHotkeyController`: temporarily changes or toggles `Time.timeScale` with a hotkey.
-- `UIRuntimeInspector`: finds UI roots marked with `IUIRuntimeInspectorRoot` and exposes their buttons, toggles, and custom shortcut targets at runtime.
+- `TimeScaleHotkeyController`：通过快捷键临时修改或切换 `Time.timeScale`。
+- `UIRuntimeInspector`：查找实现了 `IUIRuntimeInspectorRoot` 的 UI 根节点，并在运行时显示其中的按钮、开关和自定义快捷操作目标。
 
-## Usage
+## 使用方法
 
-### Time-scale hotkey
+### 时间缩放快捷键
 
-1. Add `TimeScaleHotkeyController` to a GameObject.
-2. Configure the default time scale, target time scale, hotkey, and trigger mode.
-3. The hotkey is enabled in the Windows Editor by default. Enable `Build Enable` to use it in a player build.
+1. 将 `TimeScaleHotkeyController` 添加到场景中的 GameObject。
+2. 配置默认时间缩放、目标时间缩放、快捷键和触发模式。
+3. 该快捷键默认仅在 Windows Editor 中启用；如需在 Player 构建中使用，请启用 `Build Enable`。
 
-### Runtime UI inspector
+### 运行时 UI 检查器
 
-1. Implement the empty `IUIRuntimeInspectorRoot` interface on each UI root component without changing its existing base class.
-2. Add `UIRuntimeInspector` to a Canvas or parent that contains those UI roots.
-3. Enter Play Mode and press `F2` to open the inspector. Roots later in the hierarchy are treated as being in front.
+1. 让每个 UI 根组件实现空接口 `IUIRuntimeInspectorRoot`，不需要修改其现有基类。
+2. 将 `UIRuntimeInspector` 添加到包含这些 UI 根节点的 Canvas 或父节点。
+3. 进入 Play Mode 后按 `F2` 打开检查器。层级中位置越靠后的 UI 根节点会被视为显示在更前方。
 
 ```csharp
 using Cowart.RuntimeDebugTools;
@@ -29,9 +29,9 @@ public class ExampleUI : MonoBehaviour, IUIRuntimeInspectorRoot
 }
 ```
 
-Custom components can implement `IUIRuntimeInspectorShortcutTarget` to appear in the inspector and respond to shortcut triggers.
+自定义组件可以实现 `IUIRuntimeInspectorShortcutTarget`，从而显示在检查器中并响应快捷操作。
 
-## Requirements
+## 环境要求
 
-- Unity 2021.3 or newer
-- Unity UI (`com.unity.ugui`)
+- Unity 2021.3 或更高版本
+- Unity UI（`com.unity.ugui`）
